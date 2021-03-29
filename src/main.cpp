@@ -1,4 +1,4 @@
-#include "ini.h"
+#include "INIReader.h"
 
 int main(int argc, char* argv[])
 {
@@ -7,5 +7,9 @@ int main(int argc, char* argv[])
 
     ini.ReadFile("serverconfig.txt");
     ini.SaveFile("newfile.txt");
+    std::string temp = ini.GetValueFromKey("WeaponBan", "shotgun");
     ini.PrintFileDebug();
+    printf("\n\nSelected from section: [WeaponBan]\n"
+           "                       |_Key: shotgun\n"
+           "                       |_Value: %s\n", temp.c_str());
 }

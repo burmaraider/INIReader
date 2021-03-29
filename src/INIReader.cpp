@@ -1,4 +1,4 @@
-#include "ini.h"
+#include "INIReader.h"
 
 INIReader::INIReader()
 {
