@@ -1,0 +1,24 @@
+[Settings0]
+Interval = 11
+Ratio = 3
+RatioBy = "Messages"
+
+[Settings1]
+Interval = 11
+Ratio = 3
+RatioBy = "Messages"
+
+[Settings2]
+Interval = 11
+Ratio = 3
+RatioBy = "Messages"
+
+[Settings3]
+Interval = 11
+Ratio = 3
+RatioBy = "Messages"
+
+[Settings4]
+Interval = 11
+Ratio = 3
+RatioBy = "Messages"

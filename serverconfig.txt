@@ -1,0 +1,42 @@
+[Settings]
+UseVoting = 1
+MapVoting = 1
+ClassVoting = 1
+DisallowNamechange = 0
+AllWeapons = 0
+FixCornerGlitching = 1
+FixPulseStagger = 0
+FixMinigunStagger = 0
+FixSniperStagger = 1
+F2FreeFly = 1
+DisableSmartgunTracking = 0
+DisableAnticheat = 0
+AlienLifeRegeneration = 1
+MinPredatorOpacity = 0.035   // 0.0 - 1.0
+UseExtendedWorldList = 0
+ClientsPerIP = 16
+
+[WeaponBan]
+shotgun = 0
+pulserifle = 0
+grenadelauncher = 0
+flamethrower = 0
+smartgun = 0
+bazooka = 0
+minigun = 0
+railgun = 0
+predpistol = 0
+speargun = 0
+shouldercannon = 0
+disc = 0
+netgun = 0
+stickybomb = 0
+
+[GrenadeBan]
+pulse = 0
+timed = 0
+proxy = 0
+emp = 0
+spider = 0
+trackingrockets = 0
+flares = 0
