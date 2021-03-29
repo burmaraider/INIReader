@@ -2,8 +2,8 @@
 
 INIReader::INIReader()
 {
+    return;
 }
-
 bool INIReader::ReadFile(std::string szFileName)
 {
     std::ifstream file(szFileName);
@@ -46,13 +46,53 @@ bool INIReader::ReadFile(std::string szFileName)
     }
     return result;
 }
+bool INIReader::SaveFile(std::string szFileName)
+{
+    std::ofstream file(szFileName);
 
+    if(!file.is_open()) 
+        return false;
+
+    for (int i = 0; i < sectionList.size(); i++)
+    {
+        file << "[" << sectionList[i].szSectionName << "]\n";   //Write the section
+        
+        for (int t = 0; t < keyValueList.size(); t++)
+        {
+            if(keyValueList[t].sParent.szSectionName == sectionList[i].szSectionName)
+                file << keyValueList[t].szKey << " = " << keyValueList[t].szValue << "\n";  //Write the key/value pair
+        }
+        file << "\n";
+    }
+
+    file.close();
+    return true; 
+}
+void INIReader::PrintFileDebug()
+{
+
+    if(sectionList.size() == 0 && keyValueList.size() == 0)
+        return;
+
+    for (int i = 0; i < sectionList.size(); i++)
+    {
+        printf("[%s]\n", sectionList[i].szSectionName.c_str());
+        
+        for (int t = 0; t < keyValueList.size(); t++)
+        {
+            if(keyValueList[t].sParent.szSectionName == sectionList[i].szSectionName)
+                printf("%s = %s\n",keyValueList[t].szKey.c_str(), keyValueList[t].szValue.c_str());
+        }
+        printf("\n");
+    }
+
+}
 bool INIReader::AddSection (std::string szSection)
 {
     //ensure our section name is not already defined
-    for (size_t i = 0; i < GetSections().size(); i++)
+    for (size_t i = 0; i < sectionList.size(); i++)
     {
-        if(GetSections()[i].szSectionName == szSection)
+        if(sectionList[i].szSectionName == szSection)
             return false;
     }
 
@@ -60,10 +100,9 @@ bool INIReader::AddSection (std::string szSection)
     _Section myNewSection;
     myNewSection.szSectionName = szSection;
     sectionList.push_back(myNewSection);
-    printf("Section: [%s] added\n", szSection.c_str());
+    //printf("Section: [%s] added\n", szSection.c_str());
     return true;
 }
-
 bool INIReader::AddKeyValue (std::string szSectionName, std::string szKey, std::string szValue)
 {
     for (int i = 0; i < sectionList.size(); i++)
@@ -81,7 +120,6 @@ bool INIReader::AddKeyValue (std::string szSectionName, std::string szKey, std::
     }
     return false;
 }
-
 bool INIReader::RemoveKeyValueFromSection(std::string szSectionName, std::string szKey)
 {
     for (int i = 0; i < keyValueList.size(); i++)
@@ -95,11 +133,10 @@ bool INIReader::RemoveKeyValueFromSection(std::string szSectionName, std::string
     }
     return false;
 }
-
 int INIReader::RemoveSection(std::string szSectionName)
 {
     int removeCount = 0;
-    for (int i = 0; i < GetSections().size(); i++)
+    for (int i = 0; i < sectionList.size(); i++)
     {
         if(szSectionName == sectionList[i].szSectionName)
         {
@@ -117,7 +154,6 @@ int INIReader::RemoveSection(std::string szSectionName)
     }
     return removeCount;
 }
-
 std::string INIReader::GetValueFromKey(std::string szSectionName, std::string szKey)
 {
     std::string result = "";
@@ -128,24 +164,16 @@ std::string INIReader::GetValueFromKey(std::string szSectionName, std::string sz
     }
     return result;
 }
-
-std::vector<INIReader::_Section> INIReader::GetSections()
-{
-    return sectionList;
-}
-
 std::string INIReader::ltrim(const std::string& s)
 {
     size_t start = s.find_first_not_of(WHITESPACE);
     return (start == std::string::npos) ? "" : s.substr(start);
 }
- 
 std::string INIReader::rtrim(const std::string& s)
 {
     size_t end = s.find_last_not_of(WHITESPACE);
     return (end == std::string::npos) ? "" : s.substr(0, end + 1);
 }
- 
 std::string INIReader::trim(const std::string& s)
 {
     return rtrim(ltrim(s));

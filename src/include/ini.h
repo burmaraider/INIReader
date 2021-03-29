@@ -25,6 +25,8 @@ class INIReader
     INIReader();
 
     bool ReadFile(std::string szFileName);
+    bool SaveFile(std::string szFileName);
+    void PrintFileDebug();
 
     bool AddSection(std::string szSectionName);
     bool AddKeyValue(std::string szSectionName, std::string szKey, std::string szValue);
@@ -33,7 +35,6 @@ class INIReader
     int RemoveSection(std::string szSectionName);
 
     std::string GetValueFromKey(std::string szSectionName, std::string szKey);
-    std::vector<_Section> GetSections();
 
 
   private:
