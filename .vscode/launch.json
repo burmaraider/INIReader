@@ -8,7 +8,7 @@
             "name": "Build And Debug Project",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}\\myapp.exe",
+            "program": "${workspaceFolder}\\${workspaceFolderBasename}.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
