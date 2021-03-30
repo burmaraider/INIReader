@@ -54,11 +54,11 @@ It is a **single** header and cpp file. Easy to include in any project and will 
 
 * `ReadFile` - Reads file based on the ***filename*** you supply
 * `SaveFile` - Saves file based on the ***filename*** you supply
-* `AddSection` - Adds a new **[Section]** to the interal list
+* `AddSection` - Adds a new **[Section]** to the internal list
 * `AddKeyValue` - Adds a new <span style="color:#21599e">**Key = Value**</span>  pair to the **[Section]** specified
 * `RemoveKeyValueFromSection` - Removes <span style="color:#21599e">**Key = Value**</span>  pair to the **[Section]** specified
 * `RemoveSection` - Removes **[Section]** and any <span style="color:#21599e">**Key = Value**</span>  pair associated
-* `GetValueFromKey` - Retrieves a string  from <span style="color:#21599e">**Key = Value**</span> pair from **[Section]** specified
+* `GetValueFromKey` - Retrieves the value from <span style="color:#21599e">**Key = Value**</span> pair from **[Section]** specified
 * `PrintFileDebug` - Spits out the file using `printf`
 
 ## Features
