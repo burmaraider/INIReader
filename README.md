@@ -33,7 +33,7 @@
 
 It is a **single** header and cpp file. Easy to include in any project and will compile on any compiler.
 
-![INIReader Sample](https://raw.githubusercontent.com/burmaraider/INIReader/master/.github/iniheaderimage.png)
+![INIReader Sample](https://raw.githubusercontent.com/burmaraider/INIReader/master/.github/inireaderimage.png)
 <p align="right">
 <sub>(Preview)</sub>
 </p>
