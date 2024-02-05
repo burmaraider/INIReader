@@ -75,7 +75,7 @@ Not exactly the best in the world, but it gets the job done.
 
 Reach out to me at one of the following places if you so wish:
 
-- E-Mail: **burmaraider@gmail.com**
+- E-Mail: **devburmaraider@gmail.com**
 
 ## License
 
